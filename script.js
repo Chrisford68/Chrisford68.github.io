@@ -31,8 +31,8 @@ const mouse = {
 }
 
 canvas.addEventListener('click', function(event) {
-    mouse.x = event.x;
-    mouse.y = event.y;
+    mouse.x = event.changedTouches[0].pageX;
+    mouse.y = event.changedTouches[0].pageY;
     console.log(event);
     for (let i = 0; i < 3; i++){
         particlesArray.push(new Particle());
