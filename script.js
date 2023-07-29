@@ -18,6 +18,13 @@ canvas.addEventListener('mousemove', function(event) {
     }
 })
 
+canvas.addEventListener('touchmove', function(event) {
+    mouse.x = event.x;
+    mouse.y = event.y;
+    for (let i = 0; i < 3; i++){
+        particlesArray.push(new Particle());
+    }
+})
 const mouse = {
     x: undefined,
     y: undefined,
