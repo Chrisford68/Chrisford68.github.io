@@ -11,6 +11,7 @@ window.addEventListener('resize', function(){
 });
 
 canvas.addEventListener('mousemove', function(event) {
+    console.log('move');
     mouse.x = event.x;
     mouse.y = event.y;
     for (let i = 0; i < 3; i++){
@@ -18,7 +19,16 @@ canvas.addEventListener('mousemove', function(event) {
     }
 })
 
-canvas.addEventListener('touchmove', function(event) {
+canvas.addEventListener('touchmove', (event) => {
+    console.log(event);
+    mouse.x = event.changedTouches[0].pageX;
+    mouse.y = event.changedTouches[0].pageY;
+    for (let i = 0; i < 3; i++){
+        particlesArray.push(new Particle());
+    }
+})
+canvas.addEventListener('touchstart', function(event) {
+    console.log(event);
     mouse.x = event.changedTouches[0].pageX;
     mouse.y = event.changedTouches[0].pageY;
     for (let i = 0; i < 3; i++){
