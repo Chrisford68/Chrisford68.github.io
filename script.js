@@ -19,8 +19,8 @@ canvas.addEventListener('mousemove', function(event) {
 })
 
 canvas.addEventListener('touchmove', function(event) {
-    mouse.x = event.x;
-    mouse.y = event.y;
+    mouse.x = event.changedTouches[0].pageX;
+    mouse.y = event.changedTouches[0].pageY;
     for (let i = 0; i < 3; i++){
         particlesArray.push(new Particle());
     }
@@ -31,8 +31,8 @@ const mouse = {
 }
 
 canvas.addEventListener('click', function(event) {
-    mouse.x = event.changedTouches[0].pageX;
-    mouse.y = event.changedTouches[0].pageY;
+    mouse.x = event.x;
+    mouse.y = event.y;
     console.log(event);
     for (let i = 0; i < 3; i++){
         particlesArray.push(new Particle());
